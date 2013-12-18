@@ -11,16 +11,19 @@ $log_file = './log/githooks.log';
 // Script to call
 $script_file = './script_runner.sh';
 
-// Configuration for users that will be allowed
+/* Configuration for users that will be allowed
+(it's an array, so use as many as you like). 
+Just remember to change the key*/
+
 $authorized_users = array(
         array(
                 'name' => 'gitlab',
-                'key' => '5aef35982fb2d34e9d9d4502f6ede1072793222d',
-                'ip_addresses' => array('10.9.8.7','172.6.5.4'),
+                'key' => 'lunghissimachiavealfanumericatipo123456789qwertyuiop',
+                'ip_addresses' => array('127.0.0.1','X.X.X.X'),
         ),
 	array(
                 'name' => 'github-username',
-                'key' => '5aef35982fb2d356789d4502f6ede1072793222d',
+                'key' => 'lunghissimachiavealfanumericatipo123456789qwertyuiop',
                 'ip_addresses' => array('*'),
         ),
 );
