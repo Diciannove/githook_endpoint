@@ -33,3 +33,5 @@ When a user successfully connects and sends the post-recieve data the PHP calls 
 * $COMMITID -- the ID of the commit so you can checkout that specific revision if needed
 
 Within "script_runner.sh" you have access to all these variables, so you can either do something like call another script located in hooks/$REPOSITORY/$BRANCH.sh or do if statements looking for commits to specific repo/branches or whatever you want.
+
+Remember to rename the bash script in hooks/ subdirectory to match your repository name, as it will be invoked automatically looking for that speecific name.
