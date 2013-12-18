@@ -16,7 +16,7 @@ else
         ssh $SSH_OPTIONS $REMOTE_USER@$REMOTE_HOST "$RUN_COMMANDS"
 fi
 
-if [ $RETVAL -ne 0 ]; then
+if [ $? -ne 0 ]; then
         echo "failed to deploy";
 else
         echo "$DEPLOY_BRANCH was deployed - if changes exist";
