@@ -1,21 +1,23 @@
 #!/bin/bash
+#Rename this file according to your repository name.
 
 REMOTE_HOST=''
 REMOTE_USER=''
 SSH_OPTIONS=''
-REMOTE_REPO_LOCATION='/srv/repofolder/'
+REMOTE_REPO_LOCATION='/path/to/localrepofolder/'
 DEPLOY_BRANCH=stable
 
 RUN_COMMANDS="cd $REMOTE_REPO_LOCATION ; git reset --hard ; git checkout $DEPLOY_BRANCH ; git pull origin $DEPLOY_BRANCH"
+echo $RUN_COMMANDS
 
-if [ $REMOTE_HOST == '' ]; then
-	RESULT=`$RUN_COMMANDS`
+if [[ -z "$REMOTE_HOST" ]]; then
+        eval $RUN_COMMANDS
 else
-	ssh $SSH_OPTIONS $REMOTE_USER@$REMOTE_HOST "$RUN_COMMANDS"
+        ssh $SSH_OPTIONS $REMOTE_USER@$REMOTE_HOST "$RUN_COMMANDS"
 fi
 
-if [ $RETVAL -ne 0 ]; then 
-	echo "failed to deploy"; 
-else 
-	echo " stable was deployed if changes exist";
+if [ $RETVAL -ne 0 ]; then
+        echo "failed to deploy";
+else
+        echo "$DEPLOY_BRANCH was deployed - if changes exist";
 fi
