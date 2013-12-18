@@ -10,7 +10,7 @@ do
                 b) BRANCH=${OPTARG};;
                 u) USER=${OPTARG};;
                 m) MESSAGE=${OPTARG};;
-				c) COMMITID=${OPTARG};;
+                c) COMMITID=${OPTARG};;
         esac
 done
 
@@ -25,5 +25,5 @@ echo "COMMITID=$COMMITID" >> $LOG_FILE
 # Do your worst below here...
 # ==============================================
 
-echo "Running ./hooks/$REPOSITORY.sh -c '$COMMITID' -b '$BRANCH' -u '$USER' -m '$MESSAGE'"
+echo "Running: ./hooks/$REPOSITORY.sh -c '$COMMITID' -b '$BRANCH' -u '$USER' -m '$MESSAGE'" >> $LOG_FILE
 ./hooks/$REPOSITORY.sh -c "$COMMITID" -b "$BRANCH" -u "$USER" -m "$MESSAGE"
